@@ -3,6 +3,7 @@ export default {
         let ws = new Worker("./storage/wsBusqueda.js");
         let form = document.querySelector("#form");
         let input = document.querySelector("#input");
+        let results = document.querySelector("#results");
         let list = document.querySelector("#list");
         let modal = document.querySelector(".modalC");
 
@@ -35,9 +36,16 @@ export default {
 
             if (message === "submit") {
                 list.innerHTML = data;
+                results.style.display = "flex";
             } else if (message === "getDetails") {
                 modal.innerHTML = data;
                 modal.style.display = "flex";
+            } else if (message === "error") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops!',
+                    text: 'Please enter a valid ingredient'
+                })
             }
         }
     }

@@ -24,7 +24,7 @@ let submit = async (url) => {
         postMessage({ message: "submit", data: data });
 
     } catch (error) {
-        console.log(error);
+        postMessage({ message: "error" })
     }
 }
 
@@ -37,7 +37,7 @@ let getDetails = async (url) => {
         let modal = `
             <div class="modal">
                 <h2 class="modal-title">${meal.strMeal}</h2>
-                <p class="modal-category">${meal.strCategory}</p>
+                <p class="modal-category">Category: ${meal.strCategory}</p>
                 <div class="modal-instructions">
                     <h3>Instructions:</h3>
                     <p>${meal.strInstructions}</p>
@@ -47,7 +47,7 @@ let getDetails = async (url) => {
                 </div>
                 <div class="modal-link">
                     <a href="${meal.strYoutube}" target = "_blank">
-                        Watch Video
+                        Click here to watch the Video
                     </a>
                 </div>
                 <div class="modal-button">

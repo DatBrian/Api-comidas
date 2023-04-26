@@ -11,6 +11,13 @@
 
     <script src="./style/style.js" defer></script>
     <link rel="stylesheet" href="./style/style.css">
+
+    <script src="
+    https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js
+    "></script>
+    <link href="
+    https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css
+    " rel="stylesheet">
 </head>
 
 <body>
@@ -18,10 +25,13 @@
         <div id="form-container">
             <form id="form">
                 <h2>Find your meal</h2>
-                <div class="input">
-                    <input type="text" id="input">
-                    <button type="submit" class="btn search-btn" id="search-btn">
-                        buscar
+                <div class="submit">
+                    <div class="input-group">
+                        <input id="input" required="" type="text" name="text" autocomplete="off" class="input">
+                        <label class="user-label">Your Ingredient</label>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        <img src="./recursos/espatula.png" alt="">
                     </button>
                 </div>
             </form>
