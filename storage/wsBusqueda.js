@@ -33,6 +33,8 @@ let getDetails = async (url) => {
         let respuesta = await fetch(url);
         let resultado = await respuesta.json();
         meal = resultado.meals["0"];
+        let ingredientes = await getIngredients(meal.idMeal);
+        console.log(ingredientes);
 
         let modal = `
             <div class="modal">
@@ -50,9 +52,21 @@ let getDetails = async (url) => {
                         Click here to watch the Video
                     </a>
                 </div>
+                <div class="modal-link">
+                    <button class="buttonsI">
+                            Click here to get the ingredients list
+                     </button>
+                </div>
                 <div class="modal-button">
                     <button class="cerrar-modal">Cerrar</button>
                 </div>
+            </div>
+            <div class="modalI-C">
+            <div class="modalI">
+                <h3>Ingredients:</h3>
+                <ul>${ingredientes}</ul>
+                <button class="cerrar-modalI">Cerrar</button>
+            </div>
             </div>
         `
         postMessage({ message: "getDetails", data: modal });
@@ -61,6 +75,31 @@ let getDetails = async (url) => {
         console.log(error);
     }
 }
+
+let getIngredients = async (id) => {
+    try {
+        let respuesta = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`);
+        let resultado = await respuesta.json();
+
+        let ingredientes = resultado.meals[0];
+
+        let ingredientesArray = [];
+
+        for (let i = 1; i <= 20; i++) {
+            if (ingredientes[`strIngredient${i}`]) {
+                ingredientesArray.push(`<li>${ingredientes[`strIngredient${i}`]} - ${ingredientes[`strMeasure${i}`]}</li>`);
+            } else {
+                break;
+            }
+        }
+
+        return ingredientesArray.join('');
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 
 onmessage = (e) => {
     let { message, url } = e.data;

@@ -135,7 +135,8 @@ input:valid~label {
 }
 
 .buttons,
-.cerrar-modal {
+.cerrar-modal,
+.cerrar-modalI {
     border-radius: 5px;
     text-decoration: none;
     background-color: orange;
@@ -147,8 +148,13 @@ input:valid~label {
 }
 
 .buttons:hover,
-.cerrar-modal:hover {
+.cerrar-modal:hover,
+.cerrar-modalI:hover {
     background-color: rgb(255, 196, 0);
+}
+
+.buttonsI {
+    border: none;
 }
 
 #modals-container {
@@ -157,6 +163,8 @@ input:valid~label {
     justify-content: center;
     left: 0;
     top: 10%;
+    height: 80vh;
+    overflow-y: scroll
 }
 
 .modalC {
@@ -164,10 +172,10 @@ input:valid~label {
     width: 70%;
     background-color: #ececec;
     justify-content: center;
-    align-content: center;
     flex-wrap: wrap;
     text-align: center;
     padding: 3rem;
+    height: fit-content;
     opacity: 0;
     animation-name: aparicion;
     animation-duration: 1s;
@@ -207,4 +215,41 @@ input:valid~label {
 
 .modal-link a:hover {
     color: purple;
+}
+
+.modalI-C {
+    transform: translate(-20.5em, -15.3125em);
+}
+
+.modalI {
+    display: none;
+    flex-direction: column;
+    background-color: #e2e1e1;
+    gap: 1rem;
+    padding: 1.5rem;
+}
+
+.modalI ul {
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
+}
+
+.buttonsI {
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 1rem;
+    font-weight: bold;
+    font-family: 'Poppins';
+    transition: .5s;
+    color: -webkit-link;
+    font-size: 1rem;
+}
+
+.buttonsI:hover {
+    color: purple;
+}
+
+.buttonsI a {
+    pointer-events: none;
 }
