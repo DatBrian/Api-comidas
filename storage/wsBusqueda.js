@@ -64,7 +64,9 @@ let getDetails = async (url) => {
             <div class="modalI-C">
             <div class="modalI">
                 <h3>Ingredients:</h3>
-                <ul>${ingredientes}</ul>
+                <div class="list">
+                    <ul>${ingredientes}</ul>
+                </div>
                 <button class="cerrar-modalI">Cerrar</button>
             </div>
             </div>

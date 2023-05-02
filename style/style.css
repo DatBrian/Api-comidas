@@ -233,6 +233,7 @@ input:valid~label {
     display: flex;
     flex-direction: column;
     gap: .7rem;
+    align-items: flex-start;
 }
 
 .buttonsI {
@@ -252,4 +253,9 @@ input:valid~label {
 
 .buttonsI a {
     pointer-events: none;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
 }
